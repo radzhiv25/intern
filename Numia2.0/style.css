@@ -1,16 +1,14 @@
-/* .logo img{
-    width: auto;
-    height: 100%;
-    
-} */
+/* Basically used Tailwind for all CSS part */
 h3{
     color: white;
 }
+
 .layout p{
     font-size: 0.9em;
     line-height: 1.2em;
     color: gray;
 }
+/* Prompt Input */
 #hey{
     padding: 0.5em;
     font-size: 1.3em;
