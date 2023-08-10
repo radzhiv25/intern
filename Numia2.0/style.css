@@ -11,3 +11,10 @@ h3{
     line-height: 1.2em;
     color: gray;
 }
+#hey{
+    padding: 0.5em;
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
