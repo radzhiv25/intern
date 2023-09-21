@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RandomColor</title>
+    <style>
+      .container {
+        width: 300px;
+        text-align: center;
+        margin: auto;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      button {
+        width: max-content;
+        padding: 0.75em;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>
+        Click the start to generate random color every second and stop for
+        stopping the change.
+      </h3>
+      <button style="background-color: green" id="start">Start</button>
+      <button style="background-color: red" id="stop">Stop</button>
+    </div>
+
+    <script>
+      let randomColor = function () {
+        let color = "#";
+        const hex = "123456789ABCDEF";
+        for (let i = 0; i < 6; i++) {
+          color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      };
+
+      let intervalId;
+      const startChanging = function () {
+        if (!intervalId) {
+          intervalId = setInterval(changeBg, 1000);
+        }
+        function changeBg() {
+          document.body.style.backgroundColor = randomColor();
+        }
+      };
+      const stopChanging = function () {
+        clearInterval(intervalId);
+      };
+      document.getElementById("start").addEventListener("click", startChanging);
+      document.getElementById("stop").addEventListener("click", stopChanging);
+    </script>
+  </body>
+</html>
