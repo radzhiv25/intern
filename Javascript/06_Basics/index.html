@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            /* text-align: center; */
+            color: gray;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black">
+        <h1 id="head" class="heading">DOM - Document Object Model</h1>
+        <h2>Yo, this is H2</h2>
+        <h2>Yo, this is H2</h2>
+        <h2>Yo, this is H2</h2>
+
+        <p>This is main part in javascript and manipulation of the HTML page</p>
+        <ul class="days">
+            <li class="list-item">Monday</li>
+            <li class="list-item">Tuesday</li>
+            <li class="list-item">Wednesday</li>
+            <li class="list-item">Thursday</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    document.getElementById('head').innerHTML = 'This is the new heading'
+    document.getElementById('head').setAttribute('class', 'title')
+    const title = document.getElementById('head')
+
+    title.style.color ='lightcoral'
+    title.style.fontSize = '50px'
+    title.style.fontVariant = 'large-caps'
+    document.querySelector('h2').style.color = 'lightblue'
+    const myh2 = document.querySelectorAll('h2')
+    myh2[1].style.color = 'lightgreen'
+
+    const myUl = document.getElementsByClassName('list-item')
+    const myLi = Array.from(myUl)
+    myLi.forEach((l) => {
+        l.style.color ='orange'
+    })
+
+    const div = document.createElement('div')
+    div.class = 'container'
+    div.style.color ='blue'
+    const addText = document.createTextNode('This element is created using JS')
+    div.appendChild(addText)
+    document.body.appendChild(div)
+
+    function addDay(day){
+        const newDay = document.createElement('li')
+        newDay.innerHTML = `${day}`
+        document.querySelector('.days').appendChild(newDay)
+    }
+    addDay('Friday')
+    addDay('Saturday')
+
+    function optiDay(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.days').appendChild(li)
+    }
+    optiDay('Sunday ')
+
+
+    // editing on existing element
+    const secondDay = document.querySelector('li:nth-child(2)')
+    secondDay.textContent = 'Tues'
+
+    // another way 
+    const newDay = document.createElement('li')
+    newDay.textContent = 'Funday'
+    secondDay.replaceWith(newDay)
+
+    // edit 
+    const firstDay = document.querySelector('li:first-child')
+    firstDay.outerHTML ='<li>Mon</li>'
+
+    // remove
+    newDay.remove()
+</script>
+</html>
