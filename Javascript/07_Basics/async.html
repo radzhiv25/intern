@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>This is Asynchronous JS</h1>
+    <button>Click Me</button>
+
+    <script>
+        // const body = document.querySelector('body')
+        // const p = document.createElement('p')
+        // setTimeout(function(){
+        //     console.log('hey')
+        //     p.innerHTML = 'This is setTimeout', 2000
+        // })
+        // body.appendChild(p)
+
+        const hey = function(){
+            console.log('yo')
+        }
+        setTimeout(hey, 2000)
+    </script>
+</body>
+</html>
