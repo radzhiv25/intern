@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Cart</title>
-</head>
-<body>
+  </head>
+  <body>
     <p class="text-gray-400 p-5">
-        <span class="hover:text-black cursor-pointer"id='back' onclick="back()">back</span>
+      <a href="index.html" class="hover:text-black cursor-pointer"> back </a>
     </p>
 
     <div class="container">
-        <div id="add-product">
-
-        </div>
+      <ul id="cart-items"></ul>
     </div>
-    <script src="script.js"></script>
-</body>
+    <script>
+      let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+      let cartItemsDiv = document.getElementById("cart-items");
+
+      cartItems.forEach((item) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <div id="image">
+                        <img src='${item.img}'/>
+                    </div>
+                    <p>${item.price}</p>
+                `;
+        cartItemsDiv.appendChild(itemDiv);
+      });
+    </script>
+  </body>
 </html>

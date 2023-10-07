@@ -1,71 +1,42 @@
-let price = document.getElementById("price");
-let title = document.getElementById("title");
-let image = document.getElementById("img");
-let desc = document.getElementById("desc");
-let category = document.getElementById("category");
-let prodOne = document.getElementById("prod1");
+const productList = document.getElementById("product-list");
 
-let productList = [];
-let add = document.getElementById("add-product");
-
-async function Product() {
-    for (let i = 1; i < 5; i++){
-    const result = await axios.get(`https:fakestoreapi.com/products/${i}`);
-    console.log(result.data);
-    let ulLi = document.getElementById('prdoucts')
-    for (let i = 1; i < 5; i++){
-        let li = document.createElement('li')
-        ulLi.appendChild(li)
-    }
-
-    title.innerHTML = result.data.title;
-    let img = document.createElement("img");
-    img.src = result.data.image;
-    image.appendChild(img);
-    category.innerHTML = result.data.category;
-    desc.innerHTML = result.data.description;
-    price.innerHTML = `Rs ${result.data.price}`;
-    let btn = document.createElement("button");
-    btn.innerHTML = "Add to cart";
-    btn.className = "p-2 bg-red-400 text-white rounded";
-    btn.addEventListener("click", () => {
-      // let p = document.createElement('p')
-      // p.textContent = result.data.title
-      // console.log(p)
-      // add.appendChild(p)
-      console.log(result.data.title);
-    });
-    prodOne.appendChild(btn);
-    }
+for (let i = 1; i <= 20; i++) {
+  async function products() {
+    const res = await axios.get(`https://fakestoreapi.com/products/${i}`);
+    // console.log(res.data)
+    let li = document.createElement("li");
+    li.classList.add("product");
+    li.innerHTML = `
+    <div id="prod1" class="border p-2 shadow-md rounded-md flex flex-col items-center text-center h-full">
+                    <div id="title" class="text-sm">
+                    ${res.data.title}
+                    </div>
+                    <div id="img" class="w-2/3">
+                    <img src = "${res.data.image}" alt = "product" class ="w-3/4 m-auto">
+                    </div>
+                    <div id="category">
+                    ${res.data.category}
+                    </div>
+                    <div id="price" class="text-md font-semibold">
+                    $
+                    ${res.data.price}
+                    </div>
+                    <button class = "rounded p-2 bg-red-500 text-white " onclick="addProduct()">Add to Cart</button>
+                </div>
+    `;
+    productList.appendChild(li);
   }
 
-  Product();
+  products();
+}
+let cartItems = [];
 
-setTimeout(() => {
-  let loader = document.getElementById("mainContent");
-  loader.className = "visible";
-  console.log("visible");
-}, 1500);
-
-let back = document.getElementById("back");
-
-// back.addEventListener("click", () => {
-//   window.location.href = "index.html";
-// });
-// console.log()
-
-// function show() {
-//   let product = `
-//     <div>
-//         <h1 id='title></h1>
-//         <img id='img>
-//         <p id='desc'></p>
-//         <p id='category'></p>
-//         <p id='price'></p>
-//     </div>`;
-//   let div = document.getElementById("products");
-//   div.innerHTML = product;
-//   for (let i = 0; i < 5; i++) {
-//     div.innerHTML += product;
-//   }
-// }
+async function addProduct() {
+  let cart =  {
+    title: document.getElementById('title').innerHTML,
+    img: document.getElementById('img').innerHTML,
+    price: document.getElementById('price').innerHTML
+  }
+  cartItems.push(cart)
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}

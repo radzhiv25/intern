@@ -4,54 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>BuyAtEase</title>
 </head>
-<body id="mainContent" class="hidden">
-    <nav class="flex p-5 justify-between items-center border-b">
-        <h1 class="font-bold text-4xl bg-gradient-to-r from-blue-400 to-purple-300 text-transparent bg-clip-text">BuyAtEase</h1>
-        <ul class="font-semibold text-gray-400 flex space-x-5">
-            <li>about</li>
+<body class="">
+    <nav class="p-5 flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">BuyAtEase</h1>
+        <ul class="flex space-x-10 text-gray-400">
             <li class="hover:text-black">
+                <a href="">about</a>
+            </li>
+            <li>
                 <a href="cart.html">cart</a>
             </li>
         </ul>
     </nav>
-    <h1 class="text-4xl text-center mt-10 text-gray-500">
-        simplyfying your buying process
-    </h1>
-    <p class="text-center mt-5 text-gray-400">
-        We offer a wide range of products ranging from everything you want
-    </p>
-    <div class="product mt-10 w-2/3 grid md:grid-cols-3 grid-cols-1 gap-5 mx-auto">
-        
-        <ul id="products">
-            <li>
-                <div id="prod1" class="border p-2 shadow-md rounded-md flex flex-col items-center text-center">
-                    <div id="title" class="text-md">
-        
-                    </div>
-                    <div id="img" class="w-2/3">
-        
-                    </div>
-                    <div id="category">
-        
-                    </div>
-                    <div id="desc" class="text-sm text-gray-500">
-            
-                    </div>
-                    <div id="price" class="text-md font-semibold">
-                    </div>
-                </div>
-            </li>
-            <li></li>
-        </ul>
-    </div>
 
-    <!-- <footer class="absolute w-full md:bottom-0 mx-auto">
-        <h2 class="text-center font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-300 text-transparent bg-clip-text">BuyAtEase © 2023</h2>
-    </footer> -->
-    
+    <main class="">
+        <section>
+            <h2 class="text-center text-gray-400 mt-10 text-2xl">simplyfying your buying </h2>
+            <p class="text-center mt-5
+            ">
+                we offer a wide range of products ranging from everything you want 
+            </p>
+        </section>
+
+        <div class="products md:p-10 p-5">
+            <ul id="product-list" class="grid md:grid-cols-4 grid-cols-1 gap-5 auto-cols-min">
+
+            </ul>
+        </div>
+    </main>
+
+    <footer class="text-center p-5">
+        <h2 class="text-xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">BuyAtEase @ 2023</h2>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
