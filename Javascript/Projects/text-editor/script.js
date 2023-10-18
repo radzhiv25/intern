@@ -1,46 +1,57 @@
-const val = document.getElementById('val')
-const textVal = document.getElementById('textVal')
-let text = document.getElementById('text')
-let boldTxt = document.getElementById('bold')
-let centTxt = document.getElementById('cent')
-let italTxt = document.getElementById('ital')
-let redTxt = document.getElementById('red')
-let clear = document.getElementById('clear')
+const userInputEl = document.getElementById('userInput')
+const showTextBtn = document.getElementById('showTextBtn')
+let userText = document.getElementById('userText')
+let boldTxtBtn = document.getElementById('bold')
+let centTxtBtn = document.getElementById('cent')
+let italTxtBtn = document.getElementById('ital')
+let redTxtBtn = document.getElementById('red')
+let clearBtn = document.getElementById('clear')
 
-let orgVal = val.value
-let resetVal = document.getElementById('reset')
+// let orgVal = userInputEl.value
+let resetBtn = document.getElementById('resetBtn')
 
-resetVal.addEventListener('click', (e) =>{
+resetBtn.addEventListener('click', (e) =>{
     // e.preventDefault()
-    text.innerHTML = orgVal
+    // text.innerHTML = orgVal
+    userText.style.textAlign = 'left'
+    userText.style.color = "black"
+    userText.style.fontWeight = 'normal'
+    userText.style.fontStyle = 'unset'
 })
 
-boldTxt.addEventListener('click', (e) => {
+boldTxtBtn.addEventListener('click', (e) => {
     // e.preventDefault()
-    text.style.fontWeight = 'bold'
+    // userText.style.fontWeight = 'bold'
+    userText.classList.toggle('bold')
 })
-centTxt.addEventListener('click', (e) => {
+centTxtBtn.addEventListener('click', (e) => {
     // e.preventDefault()
-    text.style.textAlign = 'center'
+    // userText.style.textAlign = 'center'
+    userText.classList.toggle('cent')
 })
-italTxt.addEventListener('click', (e) => {
+italTxtBtn.addEventListener('click', (e) => {
     // e.preventDefault()
-    text.style.fontStyle = 'italic'
+    // userText.style.fontStyle = 'italic'
+    userText.classList.toggle('ital')
 })
-redTxt.addEventListener('click', (e) => {
+redTxtBtn.addEventListener('click', (e) => {
     // e.preventDefault()
-    text.style.color = 'red'
+    // userText.style.color = 'red'
+    userText.classList.toggle('col')
 })
 
 // console.log(val.value)
-textVal.addEventListener('click', (e) => {
-    // e.preventDefault()
-    // console.log(val.value)
-    text.innerHTML = val.value
+showTextBtn.addEventListener('click', (e) => {
+    if(!userInputEl.value){
+        alert('Please enter some text')
+    }
+    userText.innerHTML = userInputEl.value
 })
 
 clear.addEventListener('click', (e) => {
     // e.preventDefault()
-    text.innerHTML = ''
+    userText.innerHTML = ''
 })
+
+
 
