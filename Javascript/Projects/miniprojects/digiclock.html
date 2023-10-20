@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digiclock</title>
+</head>
+<style>
+    .container{
+        color: white;
+        width: 500px;
+        height: 250px;
+        margin: 20px auto;
+        padding: 20px 35px;
+        text-align: center;
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+    .time, .item-date{   
+        margin: auto;
+        width: 200px;
+        padding: 1em;
+        background-color: lightcoral;
+        border-radius: 5px;
+        font-weight: 700;
+        font-family: sans-serif;
+    }
+    @media screen {
+        .container{
+            width: auto;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Your local time </h1>
+        <div class="time"></div>
+        <h1>Date</h1>
+        <div class="item-date"></div>
+    </div>
+
+    <script>
+        const time = document.querySelector('.time')
+        setInterval(function(){
+            let date = new Date()
+            time.innerHTML = date.toLocaleTimeString()
+        }, 1000)
+        const itemDate = document.querySelector('.item-date')
+        setInterval(function(){
+            let date = new Date()
+            itemDate.innerHTML = date.toLocaleDateString()
+        }, 1000)
+    </script>
+</body>
+</html>
