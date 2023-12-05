@@ -21,7 +21,7 @@ for (let i = 1; i <= 20; i++) {
                     $
                     ${res.data.price}
                     </div>
-                    <button class = "rounded p-2 bg-red-500 text-white " onclick="addProduct('${res.data.title}','${res.data.image}','${res.data.price}')">Add to Cart</button>
+                    <button class = "rounded p-2 bg-red-500 text-white " onclick="addProduct()">Add to Cart</button>
                 </div>
     `;
     productList.appendChild(li);
@@ -31,15 +31,11 @@ for (let i = 1; i <= 20; i++) {
 }
 let cartItems = [];
 
-async function addProduct(title,image,price) {
-  console.log(title, image, price)
+async function addProduct() {
   let cart =  {
-    title : title,
-    img: image,
-    price: price
-    // title: document.getElementById('title').innerHTML,
-    // img: document.getElementById('img').innerHTML,
-    // price: document.getElementById('price').innerHTML
+    title: document.getElementById('title').innerHTML,
+    img: document.getElementById('img').innerHTML,
+    price: document.getElementById('price').innerHTML
   }
   cartItems.push(cart)
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
