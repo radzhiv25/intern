@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    margin: 5em auto;
+    text-align: center;
+}
+label{
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+input{
+    margin: 0.5em auto;
+    outline: none;
+    padding: 0.5em;
+    font-size: 1.25em ;
+    border: 1px solid gray ;
+    border-radius: 10px;
+}
+button{
+    background: lightcoral;
+    color: white;
+    font-size: 1em;
+    padding: 1em 1.5em;
+    border: none;
+    border-radius: 10px;
+}
+p{
+    margin: 1.5em 0.75em;
+    font-weight: 600;
+    
+}
