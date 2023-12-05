@@ -45,3 +45,6 @@ const hello = () => {
     // alert("Hello");
     document.getElementById('clr').style.color = 'gray'
 }
+
+const p = document.getElementById('message')
+console.log(p)
