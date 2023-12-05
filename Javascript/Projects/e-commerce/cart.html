@@ -6,6 +6,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Cart</title>
+    <style>
+      ul{
+        /* width: 500px; */
+        margin: auto;
+        display: block;
+        /* grid-template-columns: auto auto auto; */
+      }
+    </style>
   </head>
   <body>
     <p class="text-gray-400 p-5">
@@ -21,13 +29,15 @@
       let cartItemsDiv = document.getElementById("cart-items");
 
       cartItems.forEach((item) => {
-        let itemDiv = document.createElement("div");
+        let itemDiv = document.createElement("li");
         itemDiv.innerHTML = `
-                    <h3>${item.title}</h3>
-                    <div id="image">
-                        <img src='${item.img}'/>
-                    </div>
-                    <p>${item.price}</p>
+        <div class='border flex flex-col justify-center items-center my-10'>
+          <h3>${item.title}</h3>
+          <div id="image">
+            <img src='${item.img}'/>
+            </div>
+            <p>Rs ${item.price}</p>
+            </div>
                 `;
         cartItemsDiv.appendChild(itemDiv);
       });
